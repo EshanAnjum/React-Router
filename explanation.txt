@@ -1,0 +1,23 @@
+This project is based on React and incorporating React-Router. It shows the power of react router to conviniently 
+make multi page applications.
+
+In the index.js file wherever it is mentioned something like this "xyz component to...." are functional components
+that display a response to the user . The component to be displayed depends on the paths defined in the router
+part. eg "<Route path="/about" element={<About />} />" displays the about section.
+
+
+Lets talk about two main components . 
+1-> The root component that displays all the posts , named as Home . This component uses useState hook to store
+the data that we recieve from calling an api. For API calling we have used useEffect because we need to call API
+at the time of mounting of the component. The response is then converted to json and stored in our variable.
+The response is then rendered on display as <li> tage but instead using navlink.
+
+
+2-> PostPage component is slightly complex but lets break it into easier chunks.
+
+Remember the component Home which shows nav links on screen (Home) . From the list whatever NavLink we click redirects
+us to the url which looks like : "/posts/x" , where x is a dynamic variable and each link has its own (it is
+basically a id). Now defining this x as a query parameter in our route using : we treat it as a variable named (postId). Accessing
+this variable in our PostPage component and sending a api request to that specific post (using the id x) we fetch
+its details and display them.
+
